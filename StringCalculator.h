@@ -13,26 +13,30 @@ int is_delimiter(char c, const char *delims) {
 }
 
 int split_string(const char *str, const char *delims, int visit_token(const char*,int,int,int)) {
-  const char *start = str;
+  char *start;
+  start = (char *)malloc(strlen(str) + 1);
+  strcpy(start,str);
+  char *strptr = start;
   int result;
   int flg;
   int count=0;
   int set=0;
-  while (*str != '\0') {
-    flg=is_delimiter(*str, delims);
+  while (*start != '\0') {
+    flg=is_delimiter(*start, delims);
     if (flg) {
       // Found a delimiter, terminate the current substring
       set++;
-      *str = '\0';
-      result=visit_token(start,flg,count,set); 
-      start = str + 1;  // Update start pointer to next character after delimiter
+     *start='\0';
+      result=visit_token(strptr,flg,count,set);
+      strptr = start + 1;  // Update start pointer to next character after delimiter
     }
-    str++;
+    start++;
     count++;
   }
   // Handle the last token (if any)
-  if (*start != '\0') {
-    result=visit_token(start,flg,count,set);
+  if (*strptr != '\0') {
+    result=visit_token(strptr,flg,count,set);
+    printf("%dSSS\n",result);
   }
   return result;
 }
