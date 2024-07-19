@@ -12,8 +12,8 @@ int is_delimiter(char c, const char *delims) {
   return 0;
 }
 
-int split_string(const char *str, const char *delims, int visit_token(char*,int,int,int)) {
-  char *start = str;
+int split_string(const char *str, const char *delims, int visit_token(const char*,int,int,int)) {
+  const char *start = str;
   int result;
   int flg;
   int count=0;
