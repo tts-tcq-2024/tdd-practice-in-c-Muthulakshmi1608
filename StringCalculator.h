@@ -76,6 +76,8 @@ int print_token(char *token,int flg,int count,int set) {
 
 int add(const char* input)
 {
-  int result=split_string(input, delims, print_token);
+  char delims[] = ",;\n[]*//";
+  int result=0;
+  int result=split_string(input, delims, print_token);  
   return result;
 }
