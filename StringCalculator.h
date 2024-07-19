@@ -70,17 +70,6 @@ int print_token(char *token,int flg,int count,int set) {
       return (result);
   }
   
-  return token;
+  return atoi(token);
   
-}
-
-int main() {
-  char str[] = "//;\n1;2";
-  char delims[] = ",;\n[]*//";
-  int result=0;
-
-  result=split_string(str, delims, print_token);
-  printf("%dRES",result);
-
-  return 0;
 }
