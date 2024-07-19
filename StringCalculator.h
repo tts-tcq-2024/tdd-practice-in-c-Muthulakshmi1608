@@ -73,3 +73,9 @@ int print_token(char *token,int flg,int count,int set) {
   return atoi(token);
   
 }
+
+int add(const char* input)
+{
+  int result=split_string(input, delims, print_token);
+  return result;
+}
