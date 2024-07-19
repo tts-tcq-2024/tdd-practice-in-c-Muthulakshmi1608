@@ -12,12 +12,11 @@ int is_delimiter(char c, const char *delims) {
   return 0;
 }
 
-int split_string(char *str, const char *delims, int visit_token(char*,int,int,int)) {
+int split_string(const char *str, const char *delims, int visit_token(char*,int,int,int)) {
   char *start = str;
   int result;
   int flg;
   int count=0;
-  //static int sum=0;
   int set=0;
   while (*str != '\0') {
     flg=is_delimiter(*str, delims);
@@ -26,7 +25,6 @@ int split_string(char *str, const char *delims, int visit_token(char*,int,int,in
       set++;
       *str = '\0';
       result=visit_token(start,flg,count,set); 
-      printf("%sAAA\n",start);// Call a function to process the token (substring)
       start = str + 1;  // Update start pointer to next character after delimiter
     }
     str++;
@@ -35,7 +33,6 @@ int split_string(char *str, const char *delims, int visit_token(char*,int,int,in
   // Handle the last token (if any)
   if (*start != '\0') {
     result=visit_token(start,flg,count,set);
-    printf("%dSSS\n",result);
   }
   return result;
 }
@@ -50,7 +47,7 @@ int condition(int num)
 }
 
 
-int print_token(char *token,int flg,int count,int set) {
+int print_token(const char *token,int flg,int count,int set) {
  
   static int sum=0;
   int prev=atoi(token);
@@ -58,9 +55,7 @@ int print_token(char *token,int flg,int count,int set) {
   if(flg || (set>0))
   {
       //prev=atoi(token);
-      printf("%dPrev\n",prev);
       sum=sum+prev;
-      printf("%dSUM\n",sum);
       return sum;
   }
   
@@ -78,6 +73,6 @@ int add(const char* input)
 {
   char delims[] = ",;\n[]*//";
   int result=0;
-  int result=split_string(input, delims, print_token);  
+  result=split_string(input, delims, print_token);  
   return result;
 }
