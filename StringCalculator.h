@@ -94,7 +94,7 @@ int split_string(const char *str, const char *delims) {
 
 int add(const char* input)
 {
-  char delims[] = ",;\n[]*//";
+  const char delims[] = ",;\n[]*//";
   int result=0;
   result=split_string(input, delims);  
   return result;
