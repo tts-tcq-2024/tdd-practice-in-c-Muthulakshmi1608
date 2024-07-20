@@ -13,14 +13,7 @@ int is_delimiter(char c, const char *delims) {
   return 0;
 }
 
-int last_token(int flg,int set,char *strptr,int count,int result)
-{
-  if (*strptr != '\0') {
-    result=visit_token(strptr,flg,count,set);
-    return result;
-  }
-  return result;
-}
+
 
 int condition(int num)
 {
@@ -60,6 +53,15 @@ int visit_token(const char *token,int flg,int count,int set) {
   
   return atoi(token);
   
+}
+
+int last_token(int flg,int set,char *strptr,int count,int result)
+{
+  if (*strptr != '\0') {
+    result=visit_token(strptr,flg,count,set);
+    return result;
+  }
+  return result;
 }
 
 int split_string(const char *str, const char *delims) {
