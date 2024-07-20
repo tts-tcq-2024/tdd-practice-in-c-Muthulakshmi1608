@@ -36,7 +36,7 @@ bool positive_single_number(int flg,int count,int set,char *token)
 }
 bool positive_multiple_digits(int flg,int count,int set,char *token)
 {
-    return ((flg || (set>0)) && (!isalpha(*token)));
+    return ((flg || (set>0)));
 }
 
 bool positive_multiple_numbers(int flg,int set,char *token,int count)
