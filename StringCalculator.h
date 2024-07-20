@@ -29,7 +29,7 @@ bool positive_single_digit(int count,int set,char *str)
     return ((count>0) && set==0 && (!isalpha(*str)));
 }
 
-bool positive_single_number(int flg,int count,int set)
+bool positive_single_number(int flg,int count,int set,char *str)
 {
     bool is_singledigit=positive_single_digit(count,set,str);
     return (!flg  && is_singledigit);
@@ -39,7 +39,7 @@ bool positive_multiple_digits(int flg,int count,int set,char *str)
     return ((flg || (set>0)) && (!isalpha(*str)));
 }
 
-bool positive_multiple_numbers(int flg,int set)
+bool positive_multiple_numbers(int flg,int set,char *str,int count)
 {
     bool is_multipledigits=positive_multiple_digits(flg,count,set,str);
     return (is_multipledigits);
