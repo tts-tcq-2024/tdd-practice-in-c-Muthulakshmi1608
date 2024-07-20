@@ -24,24 +24,24 @@ int condition(int num)
   return 0;
 }
 
-bool positive_single_digit(int count,int set,char *str)
+bool positive_single_digit(int count,int set,char *token)
 {
-    return ((count>0) && set==0 && (!isalpha(*str)));
+    return ((count>0) && set==0 && (!isalpha(*token)));
 }
 
-bool positive_single_number(int flg,int count,int set,char *str)
+bool positive_single_number(int flg,int count,int set,char *token)
 {
-    bool is_singledigit=positive_single_digit(count,set,str);
+    bool is_singledigit=positive_single_digit(count,set,token);
     return (!flg  && is_singledigit);
 }
-bool positive_multiple_digits(int flg,int count,int set,char *str)
+bool positive_multiple_digits(int flg,int count,int set,char *token)
 {
-    return ((flg || (set>0)) && (!isalpha(*str)));
+    return ((flg || (set>0)) && (!isalpha(*token)));
 }
 
-bool positive_multiple_numbers(int flg,int set,char *str,int count)
+bool positive_multiple_numbers(int flg,int set,char *token,int count)
 {
-    bool is_multipledigits=positive_multiple_digits(flg,count,set,str);
+    bool is_multipledigits=positive_multiple_digits(flg,count,set,token);
     return (is_multipledigits);
 }
 
