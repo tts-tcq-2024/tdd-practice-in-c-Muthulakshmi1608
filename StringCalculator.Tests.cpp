@@ -43,3 +43,10 @@ TEST(StringCalculatorAddTests, ExpectSumWithCustomDelimiter) {
     int result = add(input);
     ASSERT_EQ(result, expectedresult);
 }
+
+TEST(StringCalculatorAddTests, NumberswithNegativeValue) {
+    int expectedresult = 2;
+    const char*  input = "-1;2";
+    int result = add(input);
+    ASSERT_EQ(result, expectedresult);
+}
