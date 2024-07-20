@@ -72,4 +72,11 @@ TEST(StringCalculatorAddTests, multipledelimiters) {
     ASSERT_EQ(result, expectedresult);
 }
 
+TEST(StringCalculatorAddTests, alphacharacters) {
+    int expectedresult = 0;
+    const char*  input = "hello";
+    int result = add(input);
+    ASSERT_EQ(result, expectedresult);
+}
+
 
