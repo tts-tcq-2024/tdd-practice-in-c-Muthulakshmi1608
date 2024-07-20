@@ -17,7 +17,7 @@ int is_delimiter(char c, const char *delims) {
 
 int condition(int num)
 {
-  if(num>=0 && num<=1000)  
+  if(num>=0)  
   {
       return num;
   }
