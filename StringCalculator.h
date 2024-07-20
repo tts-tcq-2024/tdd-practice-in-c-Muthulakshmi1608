@@ -41,6 +41,7 @@ int visit_token(const char *token,int flg,int count,int set) {
   
   if(positive_multiple_numbers)
   {
+    prev=condition(prev);
       sum=sum+prev;
       return sum;
   }
