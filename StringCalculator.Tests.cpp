@@ -50,3 +50,17 @@ TEST(StringCalculatorAddTests, NumberswithNegativeValue) {
     int result = add(input);
     ASSERT_EQ(result, expectedresult);
 }
+
+TEST(StringCalculatorAddTests, Null character) {
+    int expectedresult = 2;
+    const char*  input = "\0";
+    int result = add(input);
+    ASSERT_EQ(result, expectedresult);
+}
+
+TEST(StringCalculatorAddTests, Null character) {
+    int expectedresult = 2;
+    const char*  input = ";,";
+    int result = add(input);
+    ASSERT_EQ(result, expectedresult);
+}
