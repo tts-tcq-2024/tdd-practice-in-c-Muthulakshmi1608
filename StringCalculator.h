@@ -45,7 +45,7 @@ bool positive_multiple_numbers(int flg,int set,char *token,int count)
     return (is_multipledigits);
 }
 
-int visit_token(const char *token,int flg,int count,int set) {
+int visit_token(char *token,int flg,int count,int set) {
  
   static int sum=0;
   int prev=atoi(token);
