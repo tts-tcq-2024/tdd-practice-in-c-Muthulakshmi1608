@@ -51,14 +51,14 @@ TEST(StringCalculatorAddTests, NumberswithNegativeValue) {
     ASSERT_EQ(result, expectedresult);
 }
 
-TEST(StringCalculatorAddTests, Null character) {
+TEST(StringCalculatorAddTests, Nullcharacter) {
     int expectedresult = 2;
     const char*  input = "\0";
     int result = add(input);
     ASSERT_EQ(result, expectedresult);
 }
 
-TEST(StringCalculatorAddTests, Null character) {
+TEST(StringCalculatorAddTests, Onlydelimiters) {
     int expectedresult = 2;
     const char*  input = ";,";
     int result = add(input);
