@@ -13,34 +13,6 @@ int is_delimiter(char c, const char *delims) {
   return 0;
 }
 
-
-
-int split_string(const char *str, const char *delims) {
-  char *start;
-  start = (char *)malloc(strlen(str) + 1);
-  strcpy(start,str);
-  char *strptr = start;
-  int result=0;
-  int flg;
-  int count=0;
-  int set=0;
-  while (*start != '\0') {
-    flg=is_delimiter(*start, delims);
-    if (flg) {
-      // Found a delimiter, terminate the current substring
-      set++;
-     *start='\0';
-      result=visit_token(strptr,flg,count,set);
-      strptr = start + 1;  // Update start pointer to next character after delimiter
-    }
-    start++;
-    count++;
-  }
-  // Handle the last token (if any)
-  result=last_token(flg,set,strptr,count,result);
-  return result;
-}
-
 int last_token(int flg,int set,char *strptr,int count,int result)
 {
   if (*strptr != '\0') {
@@ -49,6 +21,7 @@ int last_token(int flg,int set,char *strptr,int count,int result)
   }
   return result;
 }
+
 int condition(int num)
 {
   if(num>=0 && num<=1000)  
@@ -88,6 +61,33 @@ int visit_token(const char *token,int flg,int count,int set) {
   return atoi(token);
   
 }
+
+int split_string(const char *str, const char *delims) {
+  char *start;
+  start = (char *)malloc(strlen(str) + 1);
+  strcpy(start,str);
+  char *strptr = start;
+  int result=0;
+  int flg;
+  int count=0;
+  int set=0;
+  while (*start != '\0') {
+    flg=is_delimiter(*start, delims);
+    if (flg) {
+      // Found a delimiter, terminate the current substring
+      set++;
+     *start='\0';
+      result=visit_token(strptr,flg,count,set);
+      strptr = start + 1;  // Update start pointer to next character after delimiter
+    }
+    start++;
+    count++;
+  }
+  // Handle the last token (if any)
+  result=last_token(flg,set,strptr,count,result);
+  return result;
+}
+
 
 int add(const char* input)
 {
