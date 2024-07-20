@@ -24,22 +24,33 @@ int condition(int num)
   return 0;
 }
 
+bool positive_single_digit(int count,int set,char *str)
+{
+    return ((count>0) && set==0 && (!isalpha(*str)));
+}
+
 bool positive_single_number(int flg,int count,int set)
 {
-    return (!flg  && (count>0) && set==0);
+    bool is_singledigit=positive_single_digit(count,set,str);
+    return (!flg  && is_singledigit);
+}
+bool positive_multiple_digits(int flg,int count,int set,char *str)
+{
+    return ((flg || (set>0)) && (!isalpha(*str)));
 }
 
 bool positive_multiple_numbers(int flg,int set)
 {
-    return(flg || (set>0));
+    bool is_multipledigits=positive_multiple_digits(flg,count,set,str);
+    return (is_multipledigits);
 }
 
 int visit_token(const char *token,int flg,int count,int set) {
  
   static int sum=0;
   int prev=atoi(token);
-  bool pos_mn=positive_multiple_numbers(flg,set);
-  bool pos_sn=positive_single_number(flg,count,set);
+  bool pos_mn=positive_multiple_numbers(flg,set,token,count);
+  bool pos_sn=positive_single_number(flg,count,set,token);
   
   if(pos_mn)
   {
