@@ -64,3 +64,12 @@ TEST(StringCalculatorAddTests, Onlydelimiters) {
     int result = add(input);
     ASSERT_EQ(result, expectedresult);
 }
+
+TEST(StringCalculatorAddTests, multipledelimiters) {
+    int expectedresult = 0;
+    const char*  input = "//[]\n1,2***3";
+    int result = add(input);
+    ASSERT_EQ(result, expectedresult);
+}
+
+
