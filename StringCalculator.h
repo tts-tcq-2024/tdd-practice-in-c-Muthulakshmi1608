@@ -1,6 +1,7 @@
-#include <stdio.h>
+#include<stdio.h>
 #include<string.h>
 #include<stdbool.h>
+
 
 int is_delimiter(char c, const char *delims) {
   while (*delims != '\0') {
@@ -12,12 +13,14 @@ int is_delimiter(char c, const char *delims) {
   return 0;
 }
 
-int split_string(const char *str, const char *delims, int visit_token(const char*,int,int,int)) {
+
+
+int split_string(const char *str, const char *delims) {
   char *start;
   start = (char *)malloc(strlen(str) + 1);
   strcpy(start,str);
   char *strptr = start;
-  int result;
+  int result=0;
   int flg;
   int count=0;
   int set=0;
@@ -34,13 +37,18 @@ int split_string(const char *str, const char *delims, int visit_token(const char
     count++;
   }
   // Handle the last token (if any)
-  if (*strptr != '\0') {
-    result=visit_token(strptr,flg,count,set);
-    printf("%dSSS\n",result);
-  }
+  result=last_token(flg,set,strptr,count,result);
   return result;
 }
 
+int last_token(int flg,int set,char *strptr,int count,int result)
+{
+  if (*strptr != '\0') {
+    result=visit_token(strptr,flg,count,set);
+    return result;
+  }
+  return result;
+}
 int condition(int num)
 {
   if(num>=0 && num<=1000)  
@@ -50,20 +58,28 @@ int condition(int num)
   return 0;
 }
 
+bool positive_single_number(int flg,int count,int set)
+{
+    return (!flg  && (count>0) && set==0);
+}
 
-int print_token(const char *token,int flg,int count,int set) {
+bool positive_multiple_numbers(int flg,int set)
+{
+    return(flg || (set>0));
+}
+
+int visit_token(const char *token,int flg,int count,int set) {
  
   static int sum=0;
   int prev=atoi(token);
   
-  if(flg || (set>0))
+  if(positive_multiple_numbers)
   {
-      //prev=atoi(token);
       sum=sum+prev;
       return sum;
   }
   
-  if(!flg && (count>0) && set==0 )
+  if(positive_single_number)
   {
       int result=condition((atoi(token)));
       return (result);
@@ -77,6 +93,6 @@ int add(const char* input)
 {
   char delims[] = ",;\n[]*//";
   int result=0;
-  result=split_string(input, delims, print_token);  
+  result=split_string(input, delims);  
   return result;
 }
