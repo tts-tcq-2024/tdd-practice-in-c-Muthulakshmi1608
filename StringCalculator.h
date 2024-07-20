@@ -88,6 +88,7 @@ int split_string(const char *str, const char *delims) {
   }
   // Handle the last token (if any)
   result=last_token(flg,set,strptr,count,result);
+  free(strptr);
   return result;
 }
 
