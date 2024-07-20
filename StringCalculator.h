@@ -78,7 +78,7 @@ int split_string(const char *str, const char *delims) {
     if (flg) {
       // Found a delimiter, terminate the current substring
       set++;
-     *start='\0';
+   
       result=visit_token(strptr,flg,count,set);
       strptr = start + 1;  // Update start pointer to next character after delimiter
     }
