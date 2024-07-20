@@ -38,15 +38,17 @@ int visit_token(const char *token,int flg,int count,int set) {
  
   static int sum=0;
   int prev=atoi(token);
+  bool pos_mn=positive_multiple_numbers(flg,set);
+  bool pos_sn=positive_single_number(flg,count,set);
   
-  if(positive_multiple_numbers)
+  if(pos_mn)
   {
     prev=condition(prev);
       sum=sum+prev;
       return sum;
   }
   
-  if(positive_single_number)
+  if(pos_sn)
   {
       int result=condition((atoi(token)));
       return (result);
