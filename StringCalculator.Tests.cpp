@@ -79,4 +79,10 @@ TEST(StringCalculatorAddTests, alphacharacters) {
     ASSERT_EQ(result, expectedresult);
 }
 
+TEST(StringCalculatorAddTests, Greaterthan1000) {
+    int expectedresult = 6;
+    const char*  input = "1200";
+    int result = add(input);
+    ASSERT_EQ(result, expectedresult);
+}
 
