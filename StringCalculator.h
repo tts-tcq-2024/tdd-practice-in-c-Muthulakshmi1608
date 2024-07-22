@@ -26,7 +26,7 @@ int condition(int num)
   {
       return num;
   }
-  else if(num<0)
+  if(num<0)
   {
     printf("Negatives %d not allowed",num);
     return -1;
