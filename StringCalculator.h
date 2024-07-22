@@ -52,7 +52,8 @@ int stringcalculation(char *token,int flg,int count,int set) {
   int prev=atoi(token);
   bool pos_mn=positive_multiple_numbers(flg,set,token,count);
   bool pos_sn=positive_single_number(flg,count,set,token);
-  
+
+  /* Logic for multiple numbers separated by delimiters */
   if(pos_mn)
   {
     prev=condition(prev);
@@ -60,6 +61,7 @@ int stringcalculation(char *token,int flg,int count,int set) {
       return sum;
   }
   
+   /* Logic for single digit number without delimiter */
   if(pos_sn)
   {
       int result=condition((atoi(token)));
@@ -70,6 +72,7 @@ int stringcalculation(char *token,int flg,int count,int set) {
   
 }
 
+/*To handle the last character in the input string */
 int last_character(int flg,int set,char *strptr,int count,int result)
 {
   if (*strptr != '\0') {
