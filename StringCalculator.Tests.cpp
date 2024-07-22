@@ -72,16 +72,16 @@ TEST(StringCalculatorAddTests, multipledelimiters) {
     ASSERT_EQ(result, expectedresult);
 }
 
-TEST(StringCalculatorAddTests, alphacharacters) {
+TEST(StringCalculatorAddTests, Greaterthan1000) {
     int expectedresult = 0;
-    const char*  input = "hello";
+    const char*  input = "1200";
     int result = add(input);
     ASSERT_EQ(result, expectedresult);
 }
 
-TEST(StringCalculatorAddTests, Greaterthan1000) {
+TEST(StringCalculatorAddTests, alphacharacters) {
     int expectedresult = 0;
-    const char*  input = "1200";
+    const char*  input = "hello";
     int result = add(input);
     ASSERT_EQ(result, expectedresult);
 }
