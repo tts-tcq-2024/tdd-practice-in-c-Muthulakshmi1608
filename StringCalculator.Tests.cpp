@@ -79,6 +79,13 @@ TEST(StringCalculatorAddTests, Greaterthan1000) {
     ASSERT_EQ(result, expectedresult);
 }
 
+TEST(StringCalculatorAddTests, lessthan0) {
+    int expectedresult = -1;
+    const char*  input = "-50";
+    int result = add(input);
+    ASSERT_EQ(result, expectedresult);
+}
+
 TEST(StringCalculatorAddTests, alphacharacters) {
     int expectedresult = 0;
     const char*  input = "hello";
