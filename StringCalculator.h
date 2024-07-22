@@ -13,23 +13,11 @@ int is_delimiter(char c, const char *delims) {
   return 0;
 }
 
-bool conditioncheck_for_number(int num)
-{
-  return (num>=0 && num<=1000);
-}
-
-/* Condition check for a number */
 int condition(int num)
 {
-  bool conditioncheck = conditioncheck_for_number(num);
-  if(conditioncheck)
+  if(num>=0 && num<=1000)  
   {
       return num;
-  }
-  if(num<0)
-  {
-    printf("Negatives %d not allowed",num);
-    return -1;
   }
   return 0;
 }
